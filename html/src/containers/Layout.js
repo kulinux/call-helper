@@ -5,10 +5,16 @@ import PhoneBook from '../components/PhoneBook'
 import UserInput from '../components/UserInput'
 
 function Layout(props) {
-    return <div>
-        <div><PhoneBook/></div>
-        <div><CurrentCall/></div>
-        <div><UserInput/></div>
+    return <div className='main'>
+        <aside className='first'>
+            <PhoneBook/>
+        </aside>
+        <main className='second'>
+            <UserInput/>
+       </main>
+        <aside className='third'>
+            <CurrentCall/>
+        </aside>
     </div>
 }
 

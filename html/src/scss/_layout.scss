@@ -1,0 +1,12 @@
+
+.main {
+    display: flex;
+
+    aside {
+        background-color: red;
+        flex-grow: 1;
+    }
+    main {
+        flex-grow: 2;
+    }
+}
