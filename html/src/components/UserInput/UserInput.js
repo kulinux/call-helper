@@ -5,8 +5,7 @@ import * as Yup from 'yup';
 
 
 const SignupSchema = Yup.object().shape({
-    email: Yup.string()
-      .email('Invalid email')
+    q: Yup.string()
       .required('Required'),
   });
 
@@ -17,17 +16,18 @@ const Basic = () => (
         initialValues={{ email: '', password: '' }}
         validationSchema={SignupSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+            fetch('/api/search?q=' + values.q)
+            .then(res => res.json())
+            .then((data) => {
+                setSubmitting(false);
+                alert(JSON.stringify(data));
+            });
         }}
       >
         {({ errors, isSubmitting, touched }) => (
           <Form>
-             {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <Field type="email" name="email" />
-            <Field type="password" name="password" />
+             {errors.q && touched.q ? <div>{errors.q}</div> : null}
+            <Field name="q" />
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>

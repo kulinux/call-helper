@@ -1,0 +1,17 @@
+{
+    "page": {
+        "totalResult": 25,
+        "page": 1,
+        "numberOfPages": 10
+    },
+    "result": [
+        {
+            "id": "123456",
+            "name": "Result Number One"
+        },
+        {
+            "id": "123457",
+            "name": "Result Number Two"
+        }
+    ]
+}
